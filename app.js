@@ -32,9 +32,9 @@ function win(userChoice, computerchoice) {
   userscore++ ;
   userscore_span.innerHTML =  userscore;
   computerscore_span.innerHTML = computerscore;
-  const smalluser = "người chơi".fontsize(3).sup();
-  const smallcomp = "máy".fontsize(3).sup();
-  result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " đánh bại " + ConvertToWord(computerchoice) + smallcomp + ". Bạn thắng !! ";
+  const smalluser = "của em".fontsize(3).sup();
+  const smallcomp = "của ngiu e á".fontsize(3).sup();
+  result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " thắng " + ConvertToWord(computerchoice) + smallcomp + ". Nên anh nhường em thắng á !! ";
   const userChoice_div = document.getElementById(userChoice);
   userChoice_div.classList.add('green-glow');
   setTimeout(function() { userChoice_div.classList.remove('green-glow')}, 500);
@@ -43,22 +43,33 @@ function lose(userChoice, computerchoice) {
   computerscore++ ;
   userscore_span.innerHTML =  userscore;
   computerscore_span.innerHTML = computerscore;
-  const smalluser = "người chơi".fontsize(3).sup();
-  const smallcomp = "máy".fontsize(3).sup();
-  result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " bị đánh bại bởi " + ConvertToWord(computerchoice) + smallcomp + ". Bạn thua !! ";
+  const smalluser = "của Thảo xinh gái".fontsize(3).sup();
+  const smallcomp = "của Nhậtdzaiprovip".fontsize(3).sup();
+  result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " bị đánh bại bởi " + ConvertToWord(computerchoice) + smallcomp + ". Nên là em thắng :v ";
   const userChoice_div = document.getElementById(userChoice);
   userChoice_div.classList.add('red-glow');
   setTimeout(() => userChoice_div.classList.remove('red-glow'), 500);
 }
 function draw(userChoice, computerchoice) {
-  const smalluser = "người chơi".fontsize(3).sup();
-  const smallcomp = "máy".fontsize(3).sup();
-  result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " ngang nhau với " + ConvertToWord(computerchoice) + smallcomp + ". Hòa nhau !! ";
+  const smalluser = "của Ninem".fontsize(3).sup();
+  const smallcomp = "của Anh".fontsize(3).sup();
+  result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " ngang nhau với " + ConvertToWord(computerchoice) + smallcomp + " á.Nên là ván này anh xin Hòa nha !! ";
   const userChoice_div = document.getElementById(userChoice);
   userChoice_div.classList.add('gray-glow');
   setTimeout(() => userChoice_div.classList.remove('gray-glow'), 500);
 }
-
+function Talk(userChoice, computerchoice) {
+  switch (userscore + computerscore){
+    case 174:
+    result_p.innerHTML = "Ngày sinh em nè";
+    break;
+    case 88:
+    result_p.innerHTML = "Ngày sinh anh nè";
+    break;
+    case 11:
+    result_p.innerHTML = "Ngày sinh em nè";
+  }
+}
 function game(userChoice) {
   const computerchoice = getComputChoice();
   switch (userChoice + computerchoice) {
