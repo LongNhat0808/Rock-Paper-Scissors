@@ -7,7 +7,7 @@ const result_p = document.querySelector(".result > p");
 const bua_div = document.getElementById("b");
 const keo_div = document.getElementById("k");
 const bao_div = document.getElementById("g");
-
+const reset_board_div = document.getElementById('Reset');
 function getComputChoice() {
   const Choices = ['b', 'k', 'g'];
   const randomNumber = Math.floor(Math.random() * 3);
@@ -17,6 +17,15 @@ function ConvertToWord(letter) {
   if (letter === "b") return "Búa";
   if (letter === "g") return "Bao";
   return "Kéo";
+}
+function Resetmain(x) {
+  if (x === "0") {
+    userscore = 0;
+    computerscore =0;
+    userscore_span.innerHTML =  userscore;
+    computerscore_span.innerHTML = computerscore;
+  }
+    return "1";
 }
 
 function win(userChoice, computerchoice) {
@@ -28,7 +37,7 @@ function win(userChoice, computerchoice) {
   result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " đánh bại " + ConvertToWord(computerchoice) + smallcomp + ". Bạn thắng !! ";
   const userChoice_div = document.getElementById(userChoice);
   userChoice_div.classList.add('green-glow');
-  setTimeout(function() { userChoice_div.classList.remove('green-glow')}, 2000);
+  setTimeout(function() { userChoice_div.classList.remove('green-glow')}, 500);
 }
 function lose(userChoice, computerchoice) {
   computerscore++ ;
@@ -39,7 +48,7 @@ function lose(userChoice, computerchoice) {
   result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " bị đánh bại bởi " + ConvertToWord(computerchoice) + smallcomp + ". Bạn thua !! ";
   const userChoice_div = document.getElementById(userChoice);
   userChoice_div.classList.add('red-glow');
-  setTimeout(() => userChoice_div.classList.remove('red-glow'), 2000);
+  setTimeout(() => userChoice_div.classList.remove('red-glow'), 500);
 }
 function draw(userChoice, computerchoice) {
   const smalluser = "người chơi".fontsize(3).sup();
@@ -47,7 +56,7 @@ function draw(userChoice, computerchoice) {
   result_p.innerHTML = ConvertToWord(userChoice) + smalluser +  " ngang nhau với " + ConvertToWord(computerchoice) + smallcomp + ". Hòa nhau !! ";
   const userChoice_div = document.getElementById(userChoice);
   userChoice_div.classList.add('gray-glow');
-  setTimeout(() => userChoice_div.classList.remove('gray-glow'), 2000);
+  setTimeout(() => userChoice_div.classList.remove('gray-glow'), 500);
 }
 
 function game(userChoice) {
@@ -72,6 +81,8 @@ function game(userChoice) {
 }
 
 function main() {
+  reset_board_div.addEventListener('click', () => Resetmain("0"));
+
   bua_div.addEventListener('click', () => game("b"));
 
   keo_div.addEventListener('click', () => game("k"));
